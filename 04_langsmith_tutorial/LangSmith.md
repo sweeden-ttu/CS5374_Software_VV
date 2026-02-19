@@ -99,8 +99,8 @@ References
 
 • LangSmith docs: search for 'LangSmith tracing' in LangChain documentation.
 
-• Ollama instaexport LANGCHAIN_API_KEY="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"
-export OPENAI_API_KEY="sk-proj-UsosIu3R79pd5dNLQFyUSpdvkTZFWQqiwR1Q3tQOn4yhyjPYBKxLbWAkg4O0Z4hr08iiOgd9dJT3BlbkFJ2poOTxyuxiTGMoAIXLEBpPDRUf8IJHGS>
+• Ollama instaexport LANGCHAIN_API_KEY="lsv2_pt_..."
+export OPENAI_API_KEY="sk-proj-..."
 
 ll docs: https://ollama.com/download
 
