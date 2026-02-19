@@ -44,6 +44,10 @@ This course covers software verification and validation (V&V) techniques, includ
 - **Modern Tools:** LangSmith, LangGraph, AI/LLM Debugging
 - **Project Work:** Team Projects, Individual Assignments, Hands-on Exercises
 
+### Conda environment (granite-code:20b and all Python)
+
+**[Setup Miniconda env](docs/SETUP_CONDA.md)** — Create a conda environment with all dependencies for LangGraph, LangSmith, and Ollama (granite-code:20b). Run `bash scripts/setup_conda_env.sh` from the repo root (requires Miniconda/Anaconda). Modules are installed in dependency order so LangChain/LangGraph load correctly.
+
 ### Textbook Documentation
 
 **[CS5374 Textbook](docs/CS5374_Textbook.md)** — High-quality textbook documentation consolidating all course markdown materials (lecture notes, LangSmith/LangGraph tutorials, open-source tools, assignments, project plan, RedRaider/HPCC) into a single reference with table of contents, numbered parts and chapters, learning objectives, and cross-references.

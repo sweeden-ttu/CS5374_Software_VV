@@ -1,0 +1,39 @@
+# CS5374 – consolidated requirements for LangGraph, LangSmith, Ollama (granite-code:20b)
+# Install order: run scripts/setup_conda_env.sh or install base first, then this file.
+
+# Core / utilities (install first)
+typing_extensions>=4.0.0
+python-dotenv>=1.0.0
+
+# LangChain stack (order matters for resolution)
+langchain-core
+langchain
+langchain-community
+langchain-ollama
+
+# LangGraph stack
+langgraph
+langgraph-sdk
+langgraph-checkpoint-sqlite
+langgraph-cli[inmem]
+
+# LangSmith
+langsmith
+
+# Search / tools
+duckduckgo-search
+ddgs
+wikipedia
+
+# Notebooks / prompt iteration
+openai
+jupyter
+jupyterlab
+notebook
+ipykernel
+ipywidgets
+iprogress
+
+# Data / optional
+chromadb
+pandas
