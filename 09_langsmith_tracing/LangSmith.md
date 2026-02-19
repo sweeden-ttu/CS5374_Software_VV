@@ -58,6 +58,13 @@ LANGCHAIN_PROJECT=LangSmith
 # Optional (sometimes helpful):
 # LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 
+> **Note:** If the `.env` file is missing, you can set these as environment variables instead:
+> ```bash
+> export LANGCHAIN_TRACING=true
+> export LANGCHAIN_API_KEY="your-langsmith-api-key"
+> export LANGCHAIN_PROJECT="LangSmith"
+> ```
+
 Your Python code must load this file near the top:
 from dotenv import load_dotenv
 load_dotenv()

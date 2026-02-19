@@ -58,6 +58,13 @@ LANGCHAIN_PROJECT=LangSmith
 # Optional (sometimes helpful):
 # LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
 
+> **Note:** If the `.env` file is missing, you can set these as environment variables instead:
+> ```bash
+> export LANGCHAIN_TRACING=true
+> export LANGCHAIN_API_KEY="your-langsmith-api-key"
+> export LANGCHAIN_PROJECT="LangSmith"
+> ```
+
 Your Python code must load this file near the top:
 from dotenv import load_dotenv
 load_dotenv()
@@ -92,5 +99,8 @@ References
 
 • LangSmith docs: search for 'LangSmith tracing' in LangChain documentation.
 
-• Ollama install docs: https://ollama.com/download
+• Ollama instaexport LANGCHAIN_API_KEY="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"
+export OPENAI_API_KEY="sk-proj-UsosIu3R79pd5dNLQFyUSpdvkTZFWQqiwR1Q3tQOn4yhyjPYBKxLbWAkg4O0Z4hr08iiOgd9dJT3BlbkFJ2poOTxyuxiTGMoAIXLEBpPDRUf8IJHGS>
+
+ll docs: https://ollama.com/download
 

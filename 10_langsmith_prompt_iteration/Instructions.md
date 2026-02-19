@@ -41,6 +41,8 @@ export LANGCHAIN_API_KEY="your-langsmith-api-key"
 export OPENAI_API_KEY="your-openai-api-key"
 ```
 
+> **Note:** If you don't create a `.env` file, make sure these environment variables are set in your system before running the notebook. You can set them in your terminal as shown above, or add them to your shell profile (e.g., `.bashrc` or `.zshrc`).
+
 ### 3. Launch Jupyter
 
 ```bash

@@ -359,6 +359,13 @@ if __name__ == "__main__":
    # Edit .env and add your OPENAI_API_KEY
    ```
 
+   > **Note:** If the `.env` file is missing, you can set the API keys as environment variables instead:
+   > ```bash
+   > export OPENAI_API_KEY="your-openai-api-key"
+   > export LANGSMITH_API_KEY="your-langsmith-api-key"
+   > export LANGSMITH_TRACING=true
+   > ```
+
 3. **Run the starter:**
    ```bash
    python quiz1_starter.py
