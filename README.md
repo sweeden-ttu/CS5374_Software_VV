@@ -44,6 +44,10 @@ This course covers software verification and validation (V&V) techniques, includ
 - **Modern Tools:** LangSmith, LangGraph, AI/LLM Debugging
 - **Project Work:** Team Projects, Individual Assignments, Hands-on Exercises
 
+### Textbook Documentation
+
+**[CS5374 Textbook](docs/CS5374_Textbook.md)** — High-quality textbook documentation consolidating all course markdown materials (lecture notes, LangSmith/LangGraph tutorials, open-source tools, assignments, project plan, RedRaider/HPCC) into a single reference with table of contents, numbered parts and chapters, learning objectives, and cross-references.
+
 ---
 
 ## Assignments
