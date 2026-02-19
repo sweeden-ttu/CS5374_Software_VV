@@ -11,7 +11,7 @@ project/
 ├── src/agent/
 │   ├── __init__.py           # Module exports
 │   ├── graph.py              # Main integrated graph
-│   ├── demo1_graph.py        # Demo 1: Heuristic routing
+│   ├── demo1_graph.py        # Demo 1: Heuri/home/sdw3098/Pictures/Screenshotsstic routing
 │   ├── demo2_graph.py        # Demo 2: LLM routing (Ollama)
 │   ├── demo2_langsmith_graph.py  # Demo 2 with LangSmith tracing
 │   ├── quiz1_graph.py        # Quiz 1: Vague Specification Detection
@@ -61,6 +61,54 @@ Detects vague specifications and generates test cases.
 Quiz 1 with LangSmith tracing for Part B of Assignment 1.
 - **File**: `src/agent/quiz1_langsmith_graph.py`
 - **Features**: LangSmith tracing enabled
+
+### Demo: LangSmith Content Validation
+Content validation pipeline with domain verification using allowlist.
+- **File**: `src/agent/langsmith_demo.py`
+- **Pipeline**: 4 nodes - extract_content → evidence_verification → content_generation → evaluator
+- **Test Oracle**: Uses `config/allowlist.json` for domain verification
+- **Output**: Evidence artifacts to `output/langsmith_demo/`
+
+### Demo: Workflow Case Study
+Complete workflow demonstrating ACCEPT/REJECT paths based on source verification.
+- **File**: `src/agent/workflow_case_study.py`
+- **Workflow**: START → PROCESS → DECISION → ACTION → VALIDATE → END
+- **Features**: Full state management with transition tracking
+
+## New Demos (Updated)
+
+### config/allowlist.json
+- Copied from legal-luminary demo
+- Contains trusted domains for Bell County, Texas area
+- Used as Test Oracle for domain verification in langsmith_demo
+
+### src/agent/graph.py (Updated)
+- Added `langsmith_demo` and `workflow_case_study` graph types
+- New routing and runner functions for both demos
+
+### tests/unit_tests/test_langsmith_demo.py
+- Unit tests for both new demos
+
+### Running New Demos
+
+```python
+from agent.graph import graph
+
+# Run LangSmith validation demo
+result = graph.invoke({
+    "graph_type": "langsmith_demo",
+    "source_text": "content to validate...",
+    "source_url": "https://bellcountytx.gov"
+})
+
+# Run workflow case study
+result = graph.invoke({
+    "graph_type": "workflow_case_study",
+    "article_title": "News Article",
+    "source_url": "killeendailyherald.com",
+    "content": "Article content"
+})
+```
 
 ## Getting Started
 

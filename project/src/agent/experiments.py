@@ -20,6 +20,9 @@ from agent.data_loader import (
     TexasLegalDataLoader,
     get_data_loader,
 )
+from agent.validation import (
+    run_validation_pipeline,
+)
 
 
 # ============================================================
@@ -50,6 +53,10 @@ class ExperimentState(TypedDict):
     legal_datasets: List[Dict[str, Any]]
     news_items: List[Dict[str, Any]]
     comptroller_data: Dict[str, Any]
+    
+    # Validation results
+    validation_results: Dict[str, Any]
+    validation_passed: bool
     
     # Categorization results
     categorized_datasets: Dict[str, List[Dict[str, Any]]]
@@ -117,6 +124,35 @@ async def load_datasets(
         "news_items": news_items,
         "comptroller_data": comptroller_data,
         "errors": errors,
+    }
+
+
+def validate_content(
+    state: ExperimentState, runtime: Runtime[ExperimentContext]
+) -> Dict[str, Any]:
+    """Validate loaded content using the validation pipeline.
+
+    Args:
+        state: Current experiment state.
+        runtime: Runtime context with configuration.
+
+    Returns:
+        Updated state with validation results.
+    """
+    legal_datasets = state.get("legal_datasets", [])
+    news_items = state.get("news_items", [])
+    comptroller_data = state.get("comptroller_data", {})
+    
+    # Run the validation pipeline
+    validation_results = run_validation_pipeline(
+        datasets=legal_datasets,
+        news_items=news_items,
+        comptroller_data=comptroller_data,
+    )
+    
+    return {
+        "validation_results": validation_results,
+        "validation_passed": validation_results.get("overall_valid", False),
     }
 
 
@@ -262,7 +298,9 @@ def generate_results(
             "categories": {k: len(v) for k, v in state.get("categorized_datasets", {}).items()},
             "high_priority_count": len(state.get("high_priority_datasets", [])),
             "average_quality_score": state.get("average_quality_score", 0),
+            "validation_passed": state.get("validation_passed", False),
         },
+        "validation": state.get("validation_results", {}),
         "top_datasets": state.get("high_priority_datasets", [])[:10],
         "errors": state.get("errors", []),
     }
@@ -281,11 +319,13 @@ def generate_results(
 experiment_graph = (
     StateGraph(ExperimentState, context_schema=ExperimentContext)
     .add_node("load_datasets", load_datasets)
+    .add_node("validate_content", validate_content)
     .add_node("categorize_datasets", categorize_datasets)
     .add_node("analyze_quality", analyze_quality)
     .add_node("generate_results", generate_results)
     .add_edge("__start__", "load_datasets")
-    .add_edge("load_datasets", "categorize_datasets")
+    .add_edge("load_datasets", "validate_content")
+    .add_edge("validate_content", "categorize_datasets")
     .add_edge("categorize_datasets", "analyze_quality")
     .add_edge("analyze_quality", "generate_results")
     .compile(name="texas_legal_experiment")
@@ -337,6 +377,8 @@ async def run_experiment(config: Optional[ExperimentConfig] = None) -> Experimen
         "legal_datasets": [],
         "news_items": [],
         "comptroller_data": {},
+        "validation_results": {},
+        "validation_passed": False,
         "categorized_datasets": {},
         "high_priority_datasets": [],
         "quality_scores": [],
