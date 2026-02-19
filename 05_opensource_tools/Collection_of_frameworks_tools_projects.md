@@ -38,7 +38,7 @@ https://github.com/comet-ml/opik
 
 
 LLM Canary tool is an easy-to-use open-source security benchmarking test suite.
-https://github.com/LLM-Canary/LLM-Canary
+https://github.com/LLM-Canary/LLM-Canary
 
 
 Curated list of awesome open-source tools, resources, and tutorials for MLSecOps (Machine
@@ -78,7 +78,7 @@ https://github.com/ServiceNow/azimuth
 
 CheckList - Template-based testing for behavioral NLP model evaluation (minimum functionality,
 invariance, etc.).
-https://github.com/marcotcr/checklist
+https://github.com/marcotcr/checklist
 
 
 PiML - An integrated Python toolbox for interpretable machine learning

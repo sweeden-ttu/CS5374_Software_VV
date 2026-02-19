@@ -105,6 +105,10 @@ This course includes a major project on building a validation pipeline that veri
 2. **Phase 2:** Full validator suite, RAG integration
 3. **Phase 3:** Security review, experiment results
 
+### Project plan (Texas data + open-source tools)
+
+**[PROJECT_PLAN.md](submissions/PROJECT_PLAN.md)** — Integrated project plan that meets the [PROJECT_PROPOSAL](submissions/PROJECT_PROPOSAL.md) guidelines, uses **Texas Open Data** ([data.texas.gov](https://data.texas.gov), [data.capitol.texas.gov](https://data.capitol.texas.gov)) as authoritative legal/governmental sources instead of federal, and integrates the **open-source frameworks and tools** from [05_opensource_tools/Collection_of_frameworks_tools_projects.md](05_opensource_tools/Collection_of_frameworks_tools_projects.md) (DeepEval, Ragas, LangSmith, GARAK, promptfoo, Phoenix, TextAttack, etc.) into experiments, deliverables, and security review.
+
 ---
 
 *Texas Tech University • Department of Computer Science • Spring 2026*

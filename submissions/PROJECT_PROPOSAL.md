@@ -6,6 +6,8 @@
 CS5374 Software Verification and Validation | Spring 2026
 Scope: Trustworthy AI
 
+> **Related:** For a version that uses **Texas Open Data** (data.texas.gov, data.capitol.texas.gov) as authoritative sources and integrates the **open-source tools** from 05_opensource_tools, see [PROJECT_PLAN.md](PROJECT_PLAN.md).
+
 ---
 
 ## Project Title
@@ -89,7 +91,7 @@ trigger retries or human escalation before outputs are surfaced
 to users.
 
 ---
-## Experiments
+## Experiments
 
 ### Experiment 1: Baseline Hallucination Rate
 
