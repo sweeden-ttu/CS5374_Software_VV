@@ -37,8 +37,11 @@ def get_langsmith_callbacks():
             "LangSmith API key."
         )
 
-    from langsmith.run_helpers import get_client
-    from langchain.callbacks.tracers.langchain import LangChainTracer
+    try:
+        from langchain.callbacks.tracers.langchain import LangChainTracer
+    except Exception:
+        # LangChain tracer not available in this langchain installation; skip tracing
+        return []
 
     project = (
         os.getenv("LANGCHAIN_PROJECT", "Quiz1_VagueSpecDetection").strip()
