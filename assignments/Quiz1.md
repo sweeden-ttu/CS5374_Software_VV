@@ -19,19 +19,9 @@ Build a **LangGraph agent** (with LLM backend) that:
 
 ## System Architecture
 
-```mermaid
-flowchart TB
-    A[Input Specification] --> B{Vagueness Check}
-    B -->|Not Vague| C[Create Test Case]
-    B -->|Vague| D[Fix Vagueness]
-    D --> C
-    C --> E[Output Test Case Spec]
-    
-    style A fill:#e1f5fe
-    style B fill:#fff9c4
-    style C fill:#c8e6c9
-    style D fill:#ffccbc
-    style E fill:#c8e6c9
+```
+Input Specification --> Vagueness Check --> Create Test Case
+                                           --> Fix Vagueness --> Create Test Case
 ```
 
 ---
@@ -52,17 +42,11 @@ flowchart TB
 
 ### Workflow
 
-```mermaid
-stateDiagram-v2
-    [*] --> Input: Specification
-    Input --> Check: Analyze
-    Check --> NotVague: Clear Spec
-    Check --> Vague: Ambiguous
-    NotVague --> TestCase: Generate
-    Vague --> Fix: Clarify
-    Fix --> TestCase: Generate
-    TestCase --> [*]: Output
-```
+1. Input specification
+2. Analyze for vagueness
+3. If vague: clarify specification first
+4. Generate test case specification
+5. Output result
 
 ### Output Format
 
@@ -88,11 +72,7 @@ Test Case Specification:
 
 ---
 
-## Implementation Reference
-
-**Hint:** Reference `LangGraph_Demo2.py` (available on Canvas)
-
-### Key Components
+## Key Components
 
 | Component | Purpose |
 |-----------|---------|
@@ -101,37 +81,6 @@ Test Case Specification:
 | **Fix Node** | Transform vague to precise |
 | **Test Case Node** | Generate test specification |
 | **Router** | Conditional edge based on vagueness |
-
-### Suggested Code Structure
-
-```python
-from langgraph.graph import StateGraph, END
-from typing import TypedDict
-
-class State(TypedDict):
-    specification: str
-    is_vague: bool
-    clarified_spec: str
-    test_case: str
-
-def check_vagueness(state: State) -> State:
-    # LLM call to determine vagueness
-    pass
-
-def fix_vagueness(state: State) -> State:
-    # LLM call to clarify specification
-    pass
-
-def generate_test_case(state: State) -> State:
-    # LLM call to create test case spec
-    pass
-
-# Build graph
-graph = StateGraph(State)
-graph.add_node("check", check_vagueness)
-graph.add_node("fix", fix_vagueness)
-graph.add_node("testcase", generate_test_case)
-```
 
 ---
 
@@ -155,24 +104,279 @@ Use the 5 vague specification examples provided above.
 
 ---
 
-## Quick Reference
+## Starter Implementation
 
-```mermaid
-mindmap
-  root((Quiz 1))
-    Task
-      LangGraph Agent
-      LLM Backend
-      Vagueness Detection
-    Flow
-      Check Vagueness
-      Fix if Vague
-      Generate Test Case
-    Deliverables
-      Python Code
-      5 Screenshots
-    Reference
-      LangGraph_Demo2.py
+Use this scaffold to get started. You'll need to fill in the LLM API calls.
+
+```python
+#!/usr/bin/env python3
+"""
+Quiz 1: LangGraph Vague Specification Detection Agent
+Starter Implementation
+
+To run:
+1. Copy this file to your local environment
+2. Install dependencies: pip install langchain langchain-openai python-dotenv
+3. Copy .env.example to .env and add your API keys
+4. Run: python quiz1_starter.py
+"""
+
+import os
+from typing import TypedDict
+from langgraph.graph import StateGraph, END
+from langchain_openai import ChatOpenAI
+from langchain.schema import HumanMessage, SystemMessage
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
+# Get API key - update this to match your provider
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+# Initialize LLM - modify model as needed
+llm = ChatOpenAI(
+    model="gpt-4",
+    api_key=OPENAI_API_KEY,
+    temperature=0
+)
+
+# =============================================================================
+# STATE DEFINITION
+# =============================================================================
+
+class AgentState(TypedDict):
+    """State passed between nodes in the LangGraph agent."""
+    specification: str           # Input specification
+    is_vague: bool              # Whether spec is vague
+    clarified_spec: str         # Fixed specification (if vague)
+    test_case: str              # Generated test case
+
+# =============================================================================
+# NODE FUNCTIONS
+# =============================================================================
+
+def check_vagueness(state: AgentState) -> AgentState:
+    """
+    Node 1: Determine if the specification is vague or not.
+    
+    TODO: Replace this with an actual LLM call to classify the specification.
+    """
+    spec = state["specification"]
+    
+    # ---------------------------------------------------------------------
+    # TODO: Implement LLM call to check vagueness
+    # ---------------------------------------------------------------------
+    # Example implementation:
+    # 
+    # messages = [
+    #     SystemMessage(content="""You are a specification analyzer.
+    #     Determine if the following requirement is vague or unclear.
+    #     Consider: missing metrics, undefined terms, ambiguous language.
+    #     Respond with only 'VAGUE' or 'NOT_VAGUE'."""),
+    #     HumanMessage(content=spec)
+    # ]
+    # response = llm.invoke(messages)
+    # is_vague = "VAGUE" in response.content.upper()
+    #
+    # For now, we'll use a simple heuristic:
+    # ---------------------------------------------------------------------
+    
+    vague_indicators = ["fast", "easy", "high-quality", "timely", "as appropriate", "secure"]
+    is_vague = any(indicator in spec.lower() for indicator in vague_indicators)
+    
+    return {"is_vague": is_vague}
+
+
+def fix_vagueness(state: AgentState) -> AgentState:
+    """
+    Node 2: Transform a vague specification into a precise one.
+    
+    TODO: Replace with an actual LLM call to clarify the specification.
+    """
+    spec = state["specification"]
+    
+    # ---------------------------------------------------------------------
+    # TODO: Implement LLM call to clarify vague specification
+    # ---------------------------------------------------------------------
+    # Example implementation:
+    #
+    # messages = [
+    #     SystemMessage(content="""You are a requirements engineer.
+    #     Transform the following vague specification into a precise,
+    #     testable requirement. Be specific and include measurable criteria."""),
+    #     HumanMessage(content=spec)
+    # ]
+    # response = llm.invoke(messages)
+    # clarified = response.content
+    #
+    # For now, we'll use simple replacements:
+    # ---------------------------------------------------------------------
+    
+    clarifications = {
+        "fast": "response time < 200ms",
+        "easy": "requires <= 3 clicks",
+        "high-quality": "meets ISO 9001 standards",
+        "timely": "within 2 business days",
+        "as appropriate": "per investigation protocol Section 4.2",
+        "secure": "TLS 1.3 with AES-256 encryption"
+    }
+    
+    clarified = spec
+    for vague_term, clarification in clarifications.items():
+        if vague_term in clarified.lower():
+            clarified = clarified.replace(vague_term, f"[{clarification}]")
+    
+    return {"clarified_spec": clarified}
+
+
+def generate_test_case(state: AgentState) -> AgentState:
+    """
+    Node 3: Generate a test case specification.
+    
+    TODO: Replace with an actual LLM call to create test case.
+    """
+    spec = state.get("clarified_spec", state["specification"])
+    is_vague = state["is_vague"]
+    
+    # ---------------------------------------------------------------------
+    # TODO: Implement LLM call to generate test case
+    # ---------------------------------------------------------------------
+    # Example implementation:
+    #
+    # messages = [
+    #     SystemMessage(content="""You are a test engineer.
+    #     Create a detailed test case specification including:
+    #     - Input: specific test inputs
+    #     - Expected Output: expected behavior
+    #     - Preconditions: required conditions
+    #     Format as structured text."""),
+    #     HumanMessage(content=spec)
+    # ]
+    # response = llm.invoke(messages)
+    # test_case = response.content
+    #
+    # For now, we'll generate a basic test case:
+    # ---------------------------------------------------------------------
+    
+    test_case = f"""Test Case Specification:
+- Input: {spec}
+- Expected Output: System should meet all specified criteria
+- Preconditions: System must be operational, test data available
+- Vague Original: {is_vague}"""
+    
+    return {"test_case": test_case}
+
+
+# =============================================================================
+# GRAPH CONSTRUCTION
+# =============================================================================
+
+def create_agent() -> StateGraph:
+    """Build the LangGraph agent with conditional routing."""
+    
+    # Create graph
+    graph = StateGraph(AgentState)
+    
+    # Add nodes
+    graph.add_node("check", check_vagueness)
+    graph.add_node("fix", fix_vagueness)
+    graph.add_node("testcase", generate_test_case)
+    
+    # Set entry point
+    graph.set_entry_point("check")
+    
+    # Conditional routing based on vagueness
+    def route_after_check(state: AgentState) -> str:
+        """Decide next step based on whether spec is vague."""
+        if state["is_vague"]:
+            return "fix"
+        return "testcase"
+    
+    graph.add_conditional_edges(
+        "check",
+        route_after_check,
+        {"fix": "fix", "testcase": "testcase"}
+    )
+    
+    # Connect fix to testcase (after fixing, always generate test case)
+    graph.add_edge("fix", "testcase")
+    
+    # End after testcase
+    graph.add_edge("testcase", END)
+    
+    return graph
+
+
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
+if __name__ == "__main__":
+    # Create the agent
+    agent = create_agent().compile()
+    
+    # Test with example specifications
+    test_specs = [
+        "The system shall allow for fast, easy data entry",
+        "The system shall validate all input fields before submission",
+    ]
+    
+    print("=" * 60)
+    print("Quiz 1: LangGraph Vague Specification Detection Agent")
+    print("=" * 60)
+    
+    for spec in test_specs:
+        print(f"\nInput: {spec}")
+        print("-" * 40)
+        
+        # Run the agent
+        result = agent.invoke({"specification": spec})
+        
+        print(f"Is Vague: {result['is_vague']}")
+        if result.get("clarified_spec"):
+            print(f"Clarified: {result['clarified_spec']}")
+        print(f"Test Case:\n{result['test_case']}")
+        print("=" * 60)
+```
+
+---
+
+## Setup Instructions
+
+1. **Install Dependencies:**
+   ```bash
+   pip install langchain langchain-openai python-dotenv
+   ```
+
+2. **Create `.env` file:**
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your OPENAI_API_KEY
+   ```
+
+3. **Run the starter:**
+   ```bash
+   python quiz1_starter.py
+   ```
+
+---
+
+## Example .env Template
+
+Create a `.env` file in the assignments directory:
+
+```bash
+# OpenAI API Key (get from https://platform.openai.com/api-keys)
+OPENAI_API_KEY=sk-your-key-here
+
+# Optional: LangSmith for tracing (https://smith.langchain.com)
+LANGSMITH_API_KEY=ls-your-key-here
+LANGSMITH_TRACING=true
 ```
 
 ---
