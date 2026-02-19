@@ -1,6 +1,6 @@
 # MyMediasite Quick Steps Guide
 
-> **Texas Tech University - Whitacre Online Learning Program**  
+> **Texas Tech University - Whitacre Online Learning Program**
 > Contact: online.learning.coe@ttu.edu
 
 ## Overview
@@ -13,18 +13,18 @@ flowchart TB
         A[MyMediasite Portal] --> B[engrmediacast.ttu.edu/mediasite/mymediasite]
         B --> C[Search & Favorite Folders]
     end
-    
+
     subgraph Content["Content Management"]
         D[Upload MP4] --> E[Process & Queue]
         E --> F[Configure Security]
         F --> G[Share Links]
     end
-    
+
     subgraph Channels["Video Channels"]
         H[Create Channel] --> I[Name: Course/Section/Faculty/Semester]
         I --> J[Share Channel Link]
     end
-    
+
     Access --> Content
     Content --> Channels
 ```

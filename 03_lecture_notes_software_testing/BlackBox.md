@@ -1,6 +1,6 @@
 # Black-Box Testing Techniques
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
@@ -41,11 +41,11 @@ flowchart TB
         V1[Verification]
         V2[Validation]
     end
-    
+
     V1 --> Q1["Are we building the product right?"]
     V1 --> A1["Satisfy conditions at start of phase"]
     V1 --> A2["Internal process"]
-    
+
     V2 --> Q2["Are we building the right product?"]
     V2 --> B1["Satisfy customer requirements"]
     V2 --> B2["External acceptance"]
@@ -104,7 +104,7 @@ flowchart TB
         C4[Execution]
         C5[Fault Removal]
     end
-    
+
     subgraph Risks["Not Testing Costs"]
         R1[Customer Loss]
         R2[System Downtime]
@@ -145,7 +145,7 @@ flowchart TB
         B4[No source code access]
         B5[Specification-based]
     end
-    
+
     subgraph WhiteBox["White-Box Testing"]
         W1[Input] --> W2["Transparent Box"]
         W2 --> W3[Output]
@@ -172,7 +172,7 @@ flowchart LR
     B --> C[Functional/System Testing]
     C --> D[Acceptance Testing]
     D --> E[Beta Testing]
-    
+
     subgraph Regression["Throughout All Phases"]
         F[Regression Testing]
     end
@@ -311,7 +311,7 @@ $$
 flowchart LR
     A[Input] --> B[Executable Program]
     B --> C[Output]
-    
+
     D[Specification] --> E[Expected Output]
     C --> F{Compare}
     E --> F
@@ -395,7 +395,7 @@ flowchart TB
         E1["Equivalence Class 1<br/>(Valid)"]
         E2["Equivalence Class 2<br/>(Invalid)"]
     end
-    
+
     E1 --> T1[Test Case 1]
     E2 --> T2[Test Case 2]
 ```
@@ -428,7 +428,7 @@ flowchart LR
     D["..."] --> E[Max-1]
     E --> F[Max]
     F --> G[Max+1]
-    
+
     style A fill:#f99
     style B fill:#9f9
     style C fill:#9f9

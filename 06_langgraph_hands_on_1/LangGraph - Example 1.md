@@ -6,10 +6,9 @@ A Gentle Introduc.on to LangGraph
          A Quick Overview
        Instructor: A. Namin
 
-
-
                                     1
-           What is LangGraph?
+
+           What is LangGraph?
 • DeﬁniAon:
   – An orchestraAon framework for building complex
     agenAc systems
@@ -23,7 +22,8 @@ A Gentle Introduc.on to LangGraph
   – State management: Structured state shared across all
     nodes
                                                        2
-         LangGraph vs LangChain
+
+         LangGraph vs LangChain
 • LangChain Agents:
    – Dynamic reasoning at runAme
    – Plan changes based on observaAons
@@ -37,9 +37,9 @@ A Gentle Introduc.on to LangGraph
    – Use LangGraph when you need predictable, controlled
      workﬂows that must follow speciﬁc business logic every Ame.
 
-
                                                                    3
-     Core Concepts in LangGraph
+
+     Core Concepts in LangGraph
 • 1. State
    – A shared data structure (TypedDict) that ﬂows through the
      graph
@@ -54,7 +54,8 @@ A Gentle Introduc.on to LangGraph
    – Tool to construct and compile the workﬂow.
 
                                                              4
-          Best PracAce - Bo\om-Up
+
+          Best PracAce - Bo\om-Up
                 Development
 • Step-by-Step Workﬂow:
    – Step 1: Draw the graph on paper ﬁrst
@@ -68,7 +69,8 @@ A Gentle Introduc.on to LangGraph
 • Pro Tip: Always start with a visual diagram. It helps you
   think through the logic before wriAng code.
                                                           5
-Tutorial Example - Customer Feedback
+
+Tutorial Example - Customer Feedback
              Processor
 •   Business Problem:
      –   Process social media comments to idenAfy quesAons vs compliments and route them appropriately
@@ -88,11 +90,9 @@ END
 
 Input: API payload with customer remarks, Amestamps, social media channel, etc.
 
-
-
-
                                                                                                          6
-         Step 1 - CreaAng Nodes Code
+
+         Step 1 - CreaAng Nodes Code
                ImplementaAon
 from langgraph.graph import StateGraph
 
@@ -111,7 +111,8 @@ Important Notes:
 • Names can diﬀer but keeping them idenAcal improves readability
 
                                                                      7
-Step 2 - CreaAng Standard Edges Code
+
+Step 2 - CreaAng Standard Edges Code
             ImplementaAon
 from langgraph.graph import END, START
 
@@ -128,7 +129,8 @@ graph_builder.add_edge("beauAfy", END)
     – Use node names (strings), not funcAon names when adding edges!
 
                                                                                         8
-    Step 3 - CreaAng CondiAonal Edges
+
+    Step 3 - CreaAng CondiAonal Edges
               ImplementaAon
 graph_builder.add_condiAonal_edges(
   "extract_content",      # Source node
@@ -146,9 +148,9 @@ Three Required Arguments:
 
 Key Point: The rouAng funcAon must return one of the keys in the mapping dicAonary.
 
-
                                                                                       9
-         Step 4 - Deﬁning the State Class
+
+         Step 4 - Deﬁning the State Class
                  ImplementaAon
 from typing_extensions import TypedDict
 
@@ -165,7 +167,8 @@ class State(TypedDict):
 •   Best PracAce: Deﬁne all variables you'll need upfront in the State class.
 
                                                                                    10
-    Step 5 - ImplemenAng Node FuncAons (Part 1)
+
+    Step 5 - ImplemenAng Node FuncAons (Part 1)
                                         ImplementaAon
 •    Extract Content Node:
 
@@ -186,7 +189,8 @@ Pa\ern: Every node funcAon:
 Takes state: State as parameter
 Returns a dicAonary with updated state variables            11
 Accesses exisAng state via state["variable_name"]
-    Step 5 - ImplemenAng Node FuncAons (Part 2)
+
+    Step 5 - ImplemenAng Node FuncAons (Part 2)
                              ImplementaAon
 •   AcAon Nodes:
 
@@ -206,7 +210,8 @@ Note: By default, returning a dicAonary with an exisAng key overwrites that vari
 We'll learn how to append instead in upcoming slides.
 
                                                                                                  12
-         Step 6 - Compiling and Visualizing
+
+         Step 6 - Compiling and Visualizing
            Code to Compile and Display
 # Compile the graph
 graph = graph_builder.compile()
@@ -215,19 +220,15 @@ graph = graph_builder.compile()
 from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 
-
-
 •   Visual Indicators:
      –   Solid Edges: Always executed in the workﬂow
      –   Do\ed Edges: CondiAonal - only one branch executes
 •   Pro Tip: Always visualize your graph before running to verify the structure matches your
     design.
 
-
-
-
                                                                                                13
-             Step 7 - ExecuAng the Graph
+
+             Step 7 - ExecuAng the Graph
 Using invoke():
 
 result = graph.invoke({
@@ -251,7 +252,8 @@ Output Example:
 
 invoke() returns: The complete ﬁnal state auer graph execuAon
                                                                 14
- Monitoring ExecuAon - Using stream()
+
+ Monitoring ExecuAon - Using stream()
 for step in graph.stream({
     "payload": [{
        "customer_remark": "I hate this.",
@@ -272,7 +274,8 @@ Use Case: stream() is perfect for:
 •   Real-Ame updates to users
 
                                                                     15
-    Advanced - Appending vs OverwriAng
+
+    Advanced - Appending vs OverwriAng
                   State
 The Problem: By default, updaAng a state variable overwrites its value. SomeAmes you want to
 append instead.
@@ -292,7 +295,8 @@ class State(TypedDict):
      – Each return value gets appended instead of replacing
 
                                                                                                16
- UpdaAng FuncAons for Appending
+
+ UpdaAng FuncAons for Appending
 Modiﬁed Node FuncAons:
 
 def run_compliment_code(state: State):
@@ -311,7 +315,8 @@ def beauAfy(state: State):
 
 Result: Now answer contains both intermediate and ﬁnal values: ['Thanks for the compliment.', 17
 'Thanks for the compliment. beauAﬁed']
-  Custom Operators for Complex Types
+
+  Custom Operators for Complex Types
 The Problem: operator.add doesn't work with dicAonaries. For complex data structures, you
 need custom merge logic.
 
@@ -330,7 +335,8 @@ Power Tip: You can create custom operators for any complex merge logic - nested 
 custom objects, etc.
 
                                                                                                18
-Using Custom Operators in PracAce
+
+Using Custom Operators in PracAce
 Updated Node FuncAons:
 
 def run_compliment_code(state: State):
@@ -344,14 +350,10 @@ def beauAfy(state: State):
     }
   }
 
-
-
-
                                                                      19
-Using Custom Operators in PracAce
+
+Using Custom Operators in PracAce
 Final Output:
-
-
 
 {
     'answer': {
@@ -360,11 +362,9 @@ Final Output:
     }
 }
 
-
-
-
                                                                       20
- Parallel Node ExecuAon - Use Case
+
+ Parallel Node ExecuAon - Use Case
 New Requirement: Tag the type of customer remark (packaging, sustainability, medical) while
 determining if it's a quesAon or compliment.
 
@@ -381,9 +381,9 @@ Extract Content
 
 Beneﬁt: Nodes execute concurrently in the same superstep for eﬃciency.
 
-
                                                                                               21
-    ImplemenAng Parallel ExecuAon
+
+    ImplemenAng Parallel ExecuAon
 Add New Node and Edge:
 
 graph_builder.add_node("tag_query", tag_query)
@@ -399,13 +399,10 @@ def tag_query(state: State):
   else:
      return {"tag": "General"}
 
-
-
                                                  22
-    ImplemenAng Parallel ExecuAon
+
+    ImplemenAng Parallel ExecuAon
 Update State:
-
-
 
 class State(TypedDict):
    text: str
@@ -413,11 +410,9 @@ class State(TypedDict):
    answer: Annotated[dict, merge_dicts]
    payload: dict[str, list]
 
-
-
-
                                           23
-                   Using Parallel Results
+
+                   Using Parallel Results
 Updated BeauAfy FuncAon:
 
 def beauAfy(state: State):
@@ -436,7 +431,8 @@ Final Output:
        'Thanks for the compliment. I will pass it to the General Department'
   }                                                                            24
 }
-                  Advanced LLM IntegraAon
+
+                  Advanced LLM IntegraAon
 Enhanced RouAng with LLM
 
 from langchain_openai import AzureChatOpenAI
@@ -461,7 +457,8 @@ def route_quesAon_or_compliment(state: State):
   response = chain.invoke({"text": state["text"]})
   return response
                                                             25
-                          Key Takeaways
+
+                          Key Takeaways
 Core Principles:
 1. Start with a diagram - visualize before coding
 2. State is central - all data ﬂows through it
@@ -476,11 +473,9 @@ When to Use LangGraph:
 • When you need full control over execuAon ﬂow
 • Building reliable, reproducible AI systems:
 
-
-
-
                                                        26
-           Next Steps and Resources
+
+           Next Steps and Resources
 What We Covered:
 • Basic graph construcAon
 • State management ? CondiAonal rouAng
@@ -498,7 +493,8 @@ Resources:
 • GitHub: V-Sher/LangGraphTutorial LangChain
 • DocumentaAon: docs.langchain.com
 • Original ArAcle: levelup.gitconnected.com            27
-         HANDS-ON EXERCISE SLIDES
+
+         HANDS-ON EXERCISE SLIDES
 EXERCISE 1: Build Your First Graph
 
 Task: Create a simple graph that:
@@ -512,11 +508,9 @@ Hints:
 • Use condiAonal edge auer classify
 • Test with sample emails
 
-
-
-
                                                                            28
-         HANDS-ON EXERCISE SLIDES
+
+         HANDS-ON EXERCISE SLIDES
 EXERCISE 2: Implement State Appending
 
 Task: Modify the graph to:
@@ -529,34 +523,24 @@ Requirements:
 • Each node should append to history
 • Final output shows full processing chain
 
-
-
-
                                              29
-         HANDS-ON EXERCISE SLIDES
+
+         HANDS-ON EXERCISE SLIDES
 EXERCISE 3: Create Custom Operator
-
-
 
 Task: Build a custom operator that:
 1. Merges nested dicAonaries intelligently
 2. Handles conﬂicts by keeping most recent value
 3. Maintains metadata Amestamps
 
-
-
 def smart_merge(dict1, dict2):
   # Your implementaAon here
   pass
 
-
-
-
                                                    30
-          HANDS-ON EXERCISE SLIDES
+
+          HANDS-ON EXERCISE SLIDES
 EXERCISE 4: Parallel Processing
-
-
 
 Task: Create a graph that processes data in parallel:
 1. Extract content from input
@@ -565,11 +549,9 @@ Task: Create a graph that processes data in parallel:
 
 Bonus: Add Aming informaAon to see parallel speedup
 
-
-
-
                                                                                      31
-                    DEBUGGING TIPS
+
+                    DEBUGGING TIPS
 Common Issues:
 1. State variables not updaAng
     1. Check you're returning dicAonary from funcAons
@@ -584,9 +566,9 @@ Common Issues:
     1. Install: pip install langgraph langchain
     2. Check Python version (3.9+)
 
-
                                                               32
-                                                      Complete Code
+
+                                                      Complete Code
 from typing_extensions import TypedDict
 from typing import Annotated
 import operator
@@ -608,7 +590,6 @@ def route_quesAon_or_compliment(state: State):
   else:
      return "compliment"
 
-
 def run_compliment_code(state: State):
   return {"answer": ["Thanks for the compliment."]}
 
@@ -623,14 +604,11 @@ graph_builder = StateGraph(State)
 
 # Add nodes                                                           33
 graph_builder.add_node("extract_content", extract_content)
-                                  References
+
+                                  References
 •   Gentle Introduc.on to LangGraph: A Step-by-Step Tutorial (Dr. Varshita Sher)
      – h\ps://levelup.gitconnected.com/gentle-introducAon-to-langgraph-a-step-by-step-
          tutorial-2b314c967d3c?gi=•ded980ec3f
 •   Cloud LLM used for slides generaAon
 
-
-
-
                                                                                          34
-

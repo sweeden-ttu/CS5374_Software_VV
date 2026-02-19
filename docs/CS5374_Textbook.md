@@ -1,4 +1,4 @@
-# CS 5374 – Software Verification and Validation  
+# CS 5374 – Software Verification and Validation
 ## Textbook Documentation
 
 **Texas Tech University • Department of Computer Science • Spring 2026**
@@ -9,25 +9,25 @@ This textbook consolidates and elevates all course markdown materials into a sin
 
 # Table of Contents
 
-**Part I — Foundations and Course Overview**  
-1. [Course Overview and Syllabus](#part-i-foundations-and-course-overview)  
+**Part I — Foundations and Course Overview**
+1. [Course Overview and Syllabus](#part-i-foundations-and-course-overview)
 2. [Course Setup and Video Channel](#2-course-setup-and-video-channel)
 
-**Part II — Software Testing Fundamentals**  
-3. [Introduction to Software Testing](#3-introduction-to-software-testing)  
-4. [Functional (Black-Box) Testing](#4-functional-black-box-testing)  
-5. [Defect Testing: Black-Box and White-Box Techniques](#5-defect-testing-black-box-and-white-box-techniques)  
+**Part II — Software Testing Fundamentals**
+3. [Introduction to Software Testing](#3-introduction-to-software-testing)
+4. [Functional (Black-Box) Testing](#4-functional-black-box-testing)
+5. [Defect Testing: Black-Box and White-Box Techniques](#5-defect-testing-black-box-and-white-box-techniques)
 6. [Test Planning and the Economics of Testing](#6-test-planning-and-the-economics-of-testing)
 
-**Part III — LLM Tools, LangSmith, and LangGraph**  
-7. [LangSmith Setup and Tracing](#7-langsmith-setup-and-tracing)  
-8. [LangGraph: Graph-Based LLM Workflows](#8-langgraph-graph-based-llm-workflows)  
-9. [LangSmith Prompt Iteration and Evaluation](#9-langsmith-prompt-iteration-and-evaluation)  
+**Part III — LLM Tools, LangSmith, and LangGraph**
+7. [LangSmith Setup and Tracing](#7-langsmith-setup-and-tracing)
+8. [LangGraph: Graph-Based LLM Workflows](#8-langgraph-graph-based-llm-workflows)
+9. [LangSmith Prompt Iteration and Evaluation](#9-langsmith-prompt-iteration-and-evaluation)
 10. [Open-Source Frameworks and Tools for LLM V&V](#10-open-source-frameworks-and-tools-for-llm-vv)
 
-**Part IV — Assignments, Project, and Infrastructure**  
-11. [Assignments and Grading](#11-assignments-and-grading)  
-12. [Course Project: Trustworthy AI Legal Validator](#12-course-project-trustworthy-ai-legal-validator)  
+**Part IV — Assignments, Project, and Infrastructure**
+11. [Assignments and Grading](#11-assignments-and-grading)
+12. [Course Project: Trustworthy AI Legal Validator](#12-course-project-trustworthy-ai-legal-validator)
 13. [Infrastructure: RedRaider Cluster and HPCC](#13-infrastructure-redraider-cluster-and-hpcc)
 
 ---
@@ -53,12 +53,12 @@ $$
 
 Upon completion, students will be able to:
 
-1. Apply black-box and white-box testing techniques  
-2. Generate test cases using adequacy criteria (equivalence partitioning, boundary value analysis, coverage)  
-3. Implement model-based and graph-based testing  
-4. Perform fault localization and fault-based testing  
-5. Apply formal verification methods, including model checking  
-6. Evaluate AI/ML systems and Large Language Models (LLMs) using LangSmith and related tools  
+1. Apply black-box and white-box testing techniques
+2. Generate test cases using adequacy criteria (equivalence partitioning, boundary value analysis, coverage)
+3. Implement model-based and graph-based testing
+4. Perform fault localization and fault-based testing
+5. Apply formal verification methods, including model checking
+6. Evaluate AI/ML systems and Large Language Models (LLMs) using LangSmith and related tools
 
 ### 1.3 Course Topics (Tentative Timeline)
 
@@ -77,10 +77,10 @@ Upon completion, students will be able to:
 
 ### 1.4 Prerequisites and Resources
 
-- **Prerequisites:** Programming experience; familiarity with software engineering practices  
-- **Primary textbook:** *Introduction to Software Testing* — Ammann & Offutt ([online slides](https://cs.gmu.edu/~offutt/softwaretest/))  
-- **Secondary:** *Software Testing and Analysis* (Pezze & Young); *Logic in Computer Science* (Huth & Ryan)  
-- **AI/LLM:** LangSmith documentation, LangSmith Cookbook, LangGraph documentation  
+- **Prerequisites:** Programming experience; familiarity with software engineering practices
+- **Primary textbook:** *Introduction to Software Testing* — Ammann & Offutt ([online slides](https://cs.gmu.edu/~offutt/softwaretest/))
+- **Secondary:** *Software Testing and Analysis* (Pezze & Young); *Logic in Computer Science* (Huth & Ryan)
+- **AI/LLM:** LangSmith documentation, LangSmith Cookbook, LangGraph documentation
 
 ### 1.5 Grading Policy
 
@@ -110,10 +110,10 @@ Upon completion, students will be able to:
 
 MyMediasite is the university platform for course video content.
 
-- **Portal:** [engrmediacast.ttu.edu/mediasite/mymediasite](https://engrmediacast.ttu.edu/mediasite/mymediasite)  
-- **Locating shared folders:** Search by instructor name; use the star icon to favorite folders  
-- **Uploading presentations:** Choose File → select MP4 → name presentation → select destination → Create Presentation → wait for processing → adjust security (unlock for viewing)  
-- **Sharing:** Use "Share Presentation" or "Share" on a channel; copy the quick link for students  
+- **Portal:** [engrmediacast.ttu.edu/mediasite/mymediasite](https://engrmediacast.ttu.edu/mediasite/mymediasite)
+- **Locating shared folders:** Search by instructor name; use the star icon to favorite folders
+- **Uploading presentations:** Choose File → select MP4 → name presentation → select destination → Create Presentation → wait for processing → adjust security (unlock for viewing)
+- **Sharing:** Use "Share Presentation" or "Share" on a channel; copy the quick link for students
 
 **Channel naming convention:** `CourseNumber-Section-Faculty-Semester` (e.g., `CS5374-D01-Namin-Spring2026`).
 
@@ -144,11 +144,11 @@ MyMediasite is the university platform for course video content.
 
 **Key objectives:**
 
-- **What:** Systematic execution to uncover errors before delivery  
-- **Who:** Software engineers and testing specialists  
-- **Why:** Reviews and SQA are necessary but not sufficient  
-- **How:** Exercise requirements (functional) and internal logic (structural)  
-- **Work product:** Test cases with expected and actual results  
+- **What:** Systematic execution to uncover errors before delivery
+- **Who:** Software engineers and testing specialists
+- **Why:** Reviews and SQA are necessary but not sufficient
+- **How:** Exercise requirements (functional) and internal logic (structural)
+- **Work product:** Test cases with expected and actual results
 
 ### 3.2 Static vs. Dynamic Analysis
 
@@ -178,10 +178,10 @@ $$
 \text{Test Case} = \{\text{Test Input},\, \text{Expected Output},\, \text{Condition}\}
 $$
 
-- **Test oracle:** Source of expected results  
-- **Test driver:** Program that feeds inputs to the component under test and reports results  
-- **Test stub:** Dummy replacement for a subordinate module  
-- **Test harness:** Environment (drivers, stubs, data) used to run and monitor tests  
+- **Test oracle:** Source of expected results
+- **Test driver:** Program that feeds inputs to the component under test and reports results
+- **Test stub:** Dummy replacement for a subordinate module
+- **Test harness:** Environment (drivers, stubs, data) used to run and monitor tests
 
 ### 3.5 Testing Approaches and Levels
 
@@ -243,10 +243,10 @@ Apply the same idea to counts, output ranges, and data structure limits.
 
 ### 4.4 Other Functional Methods
 
-- **Error guessing:** Use experience and domain knowledge to add tests (empty lists, zero, negative, special characters, GUI edge cases).  
-- **Pair-wise (IPO):** Cover all pairs of parameter values to reduce test count while preserving interaction coverage.  
-- **Graph-based:** Model objects and relationships as a graph; use node and link coverage to derive tests.  
-- **Syntax checking:** Model input syntax (e.g., command-line options) as a state machine; generate valid and invalid sequences.  
+- **Error guessing:** Use experience and domain knowledge to add tests (empty lists, zero, negative, special characters, GUI edge cases).
+- **Pair-wise (IPO):** Cover all pairs of parameter values to reduce test count while preserving interaction coverage.
+- **Graph-based:** Model objects and relationships as a graph; use node and link coverage to derive tests.
+- **Syntax checking:** Model input syntax (e.g., command-line options) as a state machine; generate valid and invalid sequences.
 
 ### 4.5 Summary
 
@@ -277,9 +277,9 @@ Apply the same idea to counts, output ranges, and data structure limits.
 
 ### 5.3 Condition Coverage: BCC, BCCC, MCDC
 
-- **Branch Condition Coverage (BCC):** Each Boolean operand is evaluated to both TRUE and FALSE (e.g., 2 tests). Does not guarantee both outcomes of the decision.  
-- **Branch Condition Combination Coverage (BCCC):** All $2^n$ combinations of $n$ operands. Thorough but expensive.  
-- **Modified Condition/Decision Coverage (MCDC):** Each condition is shown to **independently** affect the decision outcome. Typically $n+1$ to $2n$ tests; required in avionics (e.g., DO-178).  
+- **Branch Condition Coverage (BCC):** Each Boolean operand is evaluated to both TRUE and FALSE (e.g., 2 tests). Does not guarantee both outcomes of the decision.
+- **Branch Condition Combination Coverage (BCCC):** All $2^n$ combinations of $n$ operands. Thorough but expensive.
+- **Modified Condition/Decision Coverage (MCDC):** Each condition is shown to **independently** affect the decision outcome. Typically $n+1$ to $2n$ tests; required in avionics (e.g., DO-178).
 
 **Short-circuit evaluation:** In languages that short-circuit (`&&`, `||`), some combinations may be infeasible; BCCC may not be fully achievable; MCDC remains applicable.
 
@@ -323,16 +323,16 @@ Testing incurs cost (planning, development, execution, fault removal). Not testi
 
 ### 7.1 Prerequisites
 
-- Python 3.10+ (3.11 recommended)  
-- Terminal (macOS/Linux/Windows)  
-- Optional: Ollama installed with a model (e.g., llama3.2:1b, granite-code:20b)  
-- LangSmith account and API key for cloud tracing  
+- Python 3.10+ (3.11 recommended)
+- Terminal (macOS/Linux/Windows)
+- Optional: Ollama installed with a model (e.g., llama3.2:1b, granite-code:20b)
+- LangSmith account and API key for cloud tracing
 
 ### 7.2 Environment Setup
 
-1. Create project folder and virtual environment.  
-2. Install: `langgraph`, `langchain`, `langsmith`, `langchain-ollama`, `python-dotenv`, `typing_extensions`.  
-3. (Optional) Install and run Ollama; pull a model and verify with `ollama run <model> "Say hello."`  
+1. Create project folder and virtual environment.
+2. Install: `langgraph`, `langchain`, `langsmith`, `langchain-ollama`, `python-dotenv`, `typing_extensions`.
+3. (Optional) Install and run Ollama; pull a model and verify with `ollama run <model> "Say hello."`
 
 ### 7.3 Enabling LangSmith Tracing
 
@@ -369,29 +369,29 @@ For the full tutorial (react-agent, eli5, Jupyter): install Python 3.12+, Ollama
 
 **Core concepts:**
 
-- **State:** Shared data structure (e.g., `TypedDict`) passed between nodes.  
-- **Nodes:** Functions that take state and return updates (e.g., `extract_content`, `llm_route`, `beautify`).  
-- **Edges:** Connections between nodes; can be fixed or conditional.  
-- **Conditional edges:** A routing function returns a key (e.g., `"question"` or `"compliment"`); the graph maps keys to next nodes.  
+- **State:** Shared data structure (e.g., `TypedDict`) passed between nodes.
+- **Nodes:** Functions that take state and return updates (e.g., `extract_content`, `llm_route`, `beautify`).
+- **Edges:** Connections between nodes; can be fixed or conditional.
+- **Conditional edges:** A routing function returns a key (e.g., `"question"` or `"compliment"`); the graph maps keys to next nodes.
 
 ### 8.2 Building a Simple Graph (Customer Feedback)
 
 **Workflow:** START → Extract content → Route (question vs. compliment) → Run question code OR Run compliment code → Beautify → END.
 
-1. Define **State** (e.g., `payload`, `text`, `route`, `answer`).  
-2. Add nodes: `extract_content`, `run_question_code`, `run_compliment_code`, `beautify` (and optionally `llm_route`).  
-3. Add edges: `START → extract_content`; conditional edge from `extract_content` to `run_question_code` or `run_compliment_code`; both action nodes → `beautify`; `beautify → END`.  
-4. Implement each node to read state and return a dict of updates.  
-5. Compile with `graph_builder.compile()` and run with `graph.invoke({"payload": [{"customer_remark": "..."}]})`.  
+1. Define **State** (e.g., `payload`, `text`, `route`, `answer`).
+2. Add nodes: `extract_content`, `run_question_code`, `run_compliment_code`, `beautify` (and optionally `llm_route`).
+3. Add edges: `START → extract_content`; conditional edge from `extract_content` to `run_question_code` or `run_compliment_code`; both action nodes → `beautify`; `beautify → END`.
+4. Implement each node to read state and return a dict of updates.
+5. Compile with `graph_builder.compile()` and run with `graph.invoke({"payload": [{"customer_remark": "..."}]})`.
 
 Routing can be heuristic (e.g., `"?" in text`) or LLM-based (prompt the model to return `"question"` or `"compliment"` in JSON). Beautify can be a fixed template or an LLM call.
 
 ### 8.3 Best Practices
 
-- Draw the graph on paper first (bottom-up development).  
-- Use `add_node`, `add_edge`, `add_conditional_edges` with clear names.  
-- Keep node functions pure: input state, output updates.  
-- Use LangSmith tracing to debug runs and inspect node I/O.  
+- Draw the graph on paper first (bottom-up development).
+- Use `add_node`, `add_edge`, `add_conditional_edges` with clear names.
+- Keep node functions pure: input state, output updates.
+- Use LangSmith tracing to debug runs and inspect node I/O.
 
 ---
 
@@ -403,12 +403,12 @@ Use LangSmith to **iterate on prompts** and evaluate LLM outputs systematically:
 
 ### 9.2 Workflow
 
-1. Configure LangSmith (API key, project).  
-2. Load or create a dataset (inputs and optional reference outputs).  
-3. Define an initial prompt template.  
-4. Run the prompt on the dataset; record runs in LangSmith.  
-5. Evaluate outputs (manually or with evaluators).  
-6. Identify issues, update the prompt, and repeat.  
+1. Configure LangSmith (API key, project).
+2. Load or create a dataset (inputs and optional reference outputs).
+3. Define an initial prompt template.
+4. Run the prompt on the dataset; record runs in LangSmith.
+5. Evaluate outputs (manually or with evaluators).
+6. Identify issues, update the prompt, and repeat.
 
 ### 9.3 Running the Prompt Iteration Notebook
 
@@ -420,19 +420,19 @@ Install `langchain`, `langsmith`, and optionally `openai`. Set `LANGCHAIN_TRACIN
 
 The course references a curated collection of open-source tools (see `05_opensource_tools/Collection_of_frameworks_tools_projects.md`). Selected categories:
 
-**LLM / AI evaluation and testing:**  
+**LLM / AI evaluation and testing:**
 DeepEval, promptfoo, Ragas, LangSmith, trulens, Phoenix (observability, hallucination detection), Langfuse, Opik, LLM Canary (security benchmarking).
 
-**Adversarial and robustness:**  
+**Adversarial and robustness:**
 Adversarial Robustness Toolbox (ART), TextAttack, Foolbox, OpenAttack.
 
-**Systematic testing and error analysis:**  
+**Systematic testing and error analysis:**
 Azimuth (text classification error analysis), CheckList (behavioral NLP testing), PiML, OpenXAI.
 
-**Traditional ML validation:**  
+**Traditional ML validation:**
 Deepchecks, OpenML.
 
-**Collections and red-teaming:**  
+**Collections and red-teaming:**
 NVIDIA GARAK (Generative AI Red-teaming & Assessment Kit), Vulnhuntr, CAISI cyber evals; best-of-ml-python, awesome-llm-apps, best-of-mcp-servers.
 
 Use these tools to support experiments, evaluation metrics, and security reviews (e.g., GARAK for prompt injection and red-team exercises).
@@ -451,10 +451,10 @@ Use these tools to support experiments, evaluation metrics, and security reviews
 
 **Due:** February 28. **Marks:** 9 (on-campus) / 10 (distance).
 
-**Part A — Functional/structural testing (8 marks):**  
+**Part A — Functional/structural testing (8 marks):**
 Use repository: [AutomationPanda/shopping-cart-unit-tests](https://github.com/AutomationPanda/shopping-cart-unit-tests). Deliverables: installation and execution; run existing tests; baseline coverage (Coverage.py); design 20 functional tests (equivalence partitioning); implement them; report coverage after functional tests; add structural tests to reach 80% statement coverage; final coverage report.
 
-**Part B — LangSmith (1–2 marks):**  
+**Part B — LangSmith (1–2 marks):**
 Integrate LangSmith tracing with a LangGraph or LangChain application and submit evidence (e.g., screenshots, project name). See `assignments/Assignment1-CS5374-Spring2026.md` and `assignments/RUBRIC.md` for detailed breakdown and point allocation.
 
 ### 11.3 Grading Rubrics
@@ -471,14 +471,14 @@ Build a **Trustworthy AI validation pipeline** that verifies legal and governmen
 
 ### 12.2 Proposal and Plan
 
-- **Proposal:** [submissions/PROJECT_PROPOSAL.md](../submissions/PROJECT_PROPOSAL.md) — Defines scope, hypothesis, experiments (baseline hallucination, pipeline effectiveness, validator vs. post-hoc, security red-team), deliverables, and references.  
-- **Plan (Texas data + tools):** [submissions/PROJECT_PLAN.md](../submissions/PROJECT_PLAN.md) — Same structure but uses **Texas Open Data** ([data.texas.gov](https://data.texas.gov), [data.capitol.texas.gov](https://data.capitol.texas.gov)) as authoritative sources and integrates open-source tools (DeepEval, Ragas, GARAK, promptfoo, Phoenix, etc.) into experiments and deliverables.  
+- **Proposal:** [submissions/PROJECT_PROPOSAL.md](../submissions/PROJECT_PROPOSAL.md) — Defines scope, hypothesis, experiments (baseline hallucination, pipeline effectiveness, validator vs. post-hoc, security red-team), deliverables, and references.
+- **Plan (Texas data + tools):** [submissions/PROJECT_PLAN.md](../submissions/PROJECT_PLAN.md) — Same structure but uses **Texas Open Data** ([data.texas.gov](https://data.texas.gov), [data.capitol.texas.gov](https://data.capitol.texas.gov)) as authoritative sources and integrates open-source tools (DeepEval, Ragas, GARAK, promptfoo, Phoenix, etc.) into experiments and deliverables.
 
 ### 12.3 Milestones
 
-1. **Phase 1:** Design document, threat model, validator modules (news, judges, officials), LangGraph prototype with pass/fail routing, unit and integration tests.  
-2. **Phase 2:** Full validator suite, integration with at least one authoritative source per content type, end-to-end RAG pipeline with validation gates.  
-3. **Phase 3:** Security review (red-team results), evaluation report, and experiment results.  
+1. **Phase 1:** Design document, threat model, validator modules (news, judges, officials), LangGraph prototype with pass/fail routing, unit and integration tests.
+2. **Phase 2:** Full validator suite, integration with at least one authoritative source per content type, end-to-end RAG pipeline with validation gates.
+3. **Phase 3:** Security review (red-team results), evaluation report, and experiment results.
 
 ---
 
@@ -486,8 +486,8 @@ Build a **Trustworthy AI validation pipeline** that verifies legal and governmen
 
 ### 13.1 Connecting to RedRaider
 
-- **Browser:** [HPCC OnDemand Portal](https://ondemand.hpcc.ttu.edu/) → RedRaider Cluster Shell Access.  
-- **SSH:** `ssh YOUR_ERAIDER@login.hpcc.ttu.edu` (use your key and username).  
+- **Browser:** [HPCC OnDemand Portal](https://ondemand.hpcc.ttu.edu/) → RedRaider Cluster Shell Access.
+- **SSH:** `ssh YOUR_ERAIDER@login.hpcc.ttu.edu` (use your key and username).
 
 ### 13.2 Running OLLAMA on RedRaider
 
@@ -495,8 +495,8 @@ OLLAMA runs on the **Matador GPU partition**. One-time setup: create `~/ollama-l
 
 ### 13.3 Using Cluster OLLAMA from LangChain/LangGraph
 
-- **Same node:** Set `OLLAMA_HOST` and `OLLAMA_BASE_URL` in the session; `ChatOllama` will use them.  
-- **From your laptop:** SSH port-forward to the worker node and port (e.g., `ssh -L 55131:NODE:OLPORT USER@login.hpcc.ttu.edu`); point the client to `http://127.0.0.1:55131`.  
+- **Same node:** Set `OLLAMA_HOST` and `OLLAMA_BASE_URL` in the session; `ChatOllama` will use them.
+- **From your laptop:** SSH port-forward to the worker node and port (e.g., `ssh -L 55131:NODE:OLPORT USER@login.hpcc.ttu.edu`); point the client to `http://127.0.0.1:55131`.
 
 ### 13.4 HPCC Files in This Repository
 

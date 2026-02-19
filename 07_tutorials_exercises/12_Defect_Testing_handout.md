@@ -1,6 +1,6 @@
 # Defect Testing: Black Box and White Box Techniques
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
@@ -45,14 +45,14 @@ $$
 **Specification:**
 
 > The component is passed an exam mark (out of 75) and a coursework mark (out of 25), generating a grade 'A' to 'D':
-> 
+>
 > | Total Mark | Grade |
 > |------------|-------|
 > | $\geq 70$ | 'A' |
 > | $50 \leq t < 70$ | 'B' |
 > | $30 \leq t < 50$ | 'C' |
 > | $< 30$ | 'D' |
-> 
+>
 > Fault message ('FM') generated for out-of-range marks.
 
 ### 1.3 Identifying Equivalence Partitions
@@ -63,11 +63,11 @@ flowchart TB
         E1["Exam Mark"]
         C1["Coursework Mark"]
     end
-    
+
     E1 --> E2["Valid: 0 ≤ exam ≤ 75"]
     E1 --> E3["Invalid: exam < 0"]
     E1 --> E4["Invalid: exam > 75"]
-    
+
     C1 --> C2["Valid: 0 ≤ cw ≤ 25"]
     C1 --> C3["Invalid: cw < 0"]
     C1 --> C4["Invalid: cw > 25"]
@@ -143,7 +143,7 @@ $$
 flowchart LR
     A["b-1<br/>(Invalid)"] --> B["b<br/>(Boundary)"]
     B --> C["b+1<br/>(Valid)"]
-    
+
     style A fill:#ffcdd2
     style B fill:#fff9c4
     style C fill:#c8e6c9
@@ -401,7 +401,7 @@ $$
 flowchart LR
     A["Branch Condition<br/>2 tests"] --> B["MCDC<br/>n+1 to 2n tests"]
     B --> C["Branch Condition Combo<br/>2^n tests"]
-    
+
     A --> D["Least Thorough"]
     C --> E["Most Thorough"]
 ```
@@ -425,7 +425,7 @@ flowchart TB
         B1["True && False"] --> B2["Evaluates both"]
         C1["False && X"] --> C2["Stops at first"]
     end
-    
+
     subgraph OR["Short-circuit OR (||)"]
         D1["False || False"] --> D2["Evaluates both"]
         E1["False || True"] --> E2["Evaluates both"]

@@ -1,6 +1,6 @@
 # LangSmith Prompt Iteration
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
@@ -42,20 +42,20 @@ flowchart TB
         B[Load Dataset]
         C[Define Initial Prompt]
     end
-    
+
     subgraph Iteration["Iteration Phase"]
         D[Run Prompt on Dataset]
         E[Evaluate Outputs]
         F[Identify Issues]
         G[Modify Prompt]
     end
-    
+
     subgraph Validation["Validation Phase"]
         H[Compare Results]
         I[Metrics Analysis]
         J[Final Prompt Selection]
     end
-    
+
     Setup --> Iteration --> Validation
     G --> D
 ```

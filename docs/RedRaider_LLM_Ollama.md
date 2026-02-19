@@ -11,7 +11,7 @@ This guide integrates the CS5374 Software V&V repository with the **Texas Tech H
 1. Go to the [HPCC OnDemand Portal](https://ondemand.hpcc.ttu.edu/).
 2. Log in with your **eRaider** username and password.
 3. Open a shell:
-   - From **Clusters** → **RedRaider Cluster Shell Access**, or  
+   - From **Clusters** → **RedRaider Cluster Shell Access**, or
    - From **Pinned Apps** → **RedRaider Cluster Shell Access**.
 
 Direct link: [Open OnDemand HPCC Shell](https://ondemand.hpcc.ttu.edu/pun/sys/shell/ssh/login.hpcc.ttu.edu).

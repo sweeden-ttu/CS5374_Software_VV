@@ -40,7 +40,8 @@ python-dotenv typing_extensions
 Step 3 — (Optional) Set up Ollama for local LLMs
 
 If your Demo2 uses Ollama (ChatOllama), verify it works and pull a model.
-ollama --help
+
+ollama --help
 ollama pull granite-code:20b
 ollama run granite-code:20b "Say hello in one sentence."
 
@@ -74,23 +75,18 @@ Step 5 — Run your Demo2 script
 From the same folder (with your virtual environment activated), run:
 python *Demo2.py
 
-
-
-
 Step 6 — View runs on the LangSmith website
 
 Go to the LangSmith site: https://smith.langchain.com
 
 In the left sidebar, click Tracing (or Projects → Tracing).
-Open the project named exactly like LangSmith.
+
+Open the project named exactly like LangSmith.
 
 You will see a table of Runs. Click any row (green check) to open the run.
 
 In the run details page, expand the trace tree on the left to see node-level steps and LLM
 calls.
-
-
-
 
 Tip: The table view shows only one row per run. The node-by-node details appear after
 you click into a run.
@@ -103,4 +99,3 @@ References
 export OPENAI_API_KEY="sk-proj-..."
 
 ll docs: https://ollama.com/download
-

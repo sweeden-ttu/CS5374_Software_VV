@@ -46,7 +46,8 @@ that every output includes clear provenance.
 ---
 
 ## Summary
-The proposed system will use LangChain and LangGraph to construct
+
+The proposed system will use LangChain and LangGraph to construct
 validator agents that ingest, parse, and verify structured
 content at each stage of the pipeline. For legal news sources,
 the system will check URLs against domain trust lists and
@@ -91,6 +92,7 @@ trigger retries or human escalation before outputs are surfaced
 to users.
 
 ---
+
 ## Experiments
 
 ### Experiment 1: Baseline Hallucination Rate
@@ -134,7 +136,8 @@ mitigations.
 ## Expected Experimental Results
 
 Based on prior research (see References), we expect:
-- **Baseline hallucination rate**: 5890%) due to strict
+
+- **Baseline hallucination rate**: 5890%) due to strict
 verification; we will report the precision2 prompt injection
 vectors; we will document mitigations (input sanitization, output
 schema enforcement, sandboxing).
@@ -179,7 +182,8 @@ registries.
 pass/fail based on verification checks.
 4. Unit tests and integration tests for each validator;
 documented test coverage for Trustworthy AI criteria.
-### Final / Second Round
+
+### Final / Second Round
 
 1. Full validator suite: legal news, judges, elected officials,
 election details and opponents, city/county/state laws, court
@@ -223,7 +227,8 @@ authoritative source for citation verification.
 7. **PACER (Public Access to Court Electronic Records)**
   Official federal court document system.
   <https://www.pacer.gov/>
-8. **LangChain Documentation LLM Vulnerability Scanner**
+
+8. **LangChain Documentation LLM Vulnerability Scanner**
   Red-teaming framework for LLM applications.
   <https://github.com/NVIDIA/garak>
 
@@ -238,4 +243,3 @@ authoritative source for citation verification.
 - **Data:** [NewsGuard](https://www.newsguardtech.com),
 [CourtListener API](https://www.courtlistener.com/api), [PACER]
 (https://www.pacer.gov), [FEC](https://www.fec.gov)
-

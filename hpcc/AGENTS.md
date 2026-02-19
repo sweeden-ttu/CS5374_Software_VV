@@ -19,35 +19,35 @@ Code and data under `/lustre/work/sweeden/CS5374_SOFTWARE_VV/hpcc` persist acros
 
 ## Execution order (do not skip)
 
-1. **Check existing jobs**  
-   `squeue -u YOUR_USERNAME`  
+1. **Check existing jobs**
+   `squeue -u YOUR_USERNAME`
    If OLLAMA/Jupyter/batch is already running, wait or reuse that allocation.
 
-2. **SSH to login node**  
+2. **SSH to login node**
    `ssh -q -i ~/.ssh/id_rsa YOUR_USERNAME@login.hpcc.ttu.edu`
 
-3. **Environment**  
+3. **Environment**
    `source ~/.bashrc` then confirm access to your paths.
 
-4. **Project directory**  
+4. **Project directory**
    `cd /lustre/work/YOUR_USERNAME/<project>`
 
-5. **Conda (if used)**  
+5. **Conda (if used)**
    `conda activate <environment>`
 
-6. **Modules (required before Python/GPU)**  
-   - Python: `module load Python/3.12.0` (or version on cluster)  
+6. **Modules (required before Python/GPU)**
+   - Python: `module load Python/3.12.0` (or version on cluster)
    - GPU: `module load gcc/13.2.0 cuda/12.9.0 python/3.12.5`
 
-7. **Compute allocation**  
-   - CPU: `interactive -c <cores> -t <time> -p nocona`  
-   - GPU: `interactive -c 20 -g 1 -p matador` (or `-g 2 -c 40` for 2 GPUs)  
+7. **Compute allocation**
+   - CPU: `interactive -c <cores> -t <time> -p nocona`
+   - GPU: `interactive -c 20 -g 1 -p matador` (or `-g 2 -c 40` for 2 GPUs)
    - Batch: `sbatch <script.sh>`
 
 8. **Run workload** — only after steps 1–7.
 
-9. **Port forwarding (Jupyter/OLLAMA)**  
-   - Jupyter: `ssh -L 8888:127.0.0.1:8888 ... YOUR_USERNAME@login.hpcc.ttu.edu`  
+9. **Port forwarding (Jupyter/OLLAMA)**
+   - Jupyter: `ssh -L 8888:127.0.0.1:8888 ... YOUR_USERNAME@login.hpcc.ttu.edu`
    - OLLAMA: use dynamic `$OLPORT`; forward e.g. `ssh -L 55131:NODE:OLPORT ...` (see [docs/RedRaider_LLM_Ollama.md](../docs/RedRaider_LLM_Ollama.md)).
 
 ---

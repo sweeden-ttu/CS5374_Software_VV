@@ -1,6 +1,6 @@
 # Functional Testing
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
@@ -42,16 +42,16 @@ flowchart TB
         I1[Valid Inputs]
         I2[Invalid Inputs]
     end
-    
+
     subgraph System["System Under Test"]
         S[Processing]
     end
-    
+
     subgraph Output["Output Space"]
         O1[Expected Outputs]
         O2[Anomalous Outputs]
     end
-    
+
     I1 --> S
     I2 --> S
     S --> O1
@@ -111,7 +111,7 @@ flowchart TB
         I1[Invalid Class 1]
         I2[Invalid Class 2]
     end
-    
+
     V --> S[System]
     I1 --> S
     I2 --> S
@@ -166,7 +166,7 @@ flowchart TB
 **Specification:**
 
 ```
-procedure Search (key: ELEM; T: SEQ of ELEM; 
+procedure Search (key: ELEM; T: SEQ of ELEM;
                   Found: in out BOOLEAN; L: in out ELEM_INDEX);
 
 Pre-condition: T^FIRST <= T^LAST
@@ -203,7 +203,7 @@ flowchart LR
         EC5 --> EC6[EC6]
         EC6 --> EC7[EC7]
     end
-    
+
     B1[Boundary] --> B2[Boundary] --> B3[Boundary]
 ```
 
@@ -305,11 +305,11 @@ flowchart LR
         B["B: B1, B2, B3"]
         C["C: C1, C2, C3"]
     end
-    
+
     subgraph Result["Pair-wise Coverage: 9 tests"]
         T["Each pair (Ai, Bj), (Ai, Ck), (Bj, Ck) covered"]
     end
-    
+
     Parameters --> Result
 ```
 
@@ -342,7 +342,7 @@ flowchart LR
     A[Object A] -->|"Directed Link<br/>(weight)"| B[Object B]
     A ---|"Undirected Link"| C[Object C]
     C ==>|"Parallel Links"| B
-    
+
     style A fill:#e1f5fe
     style B fill:#fff3e0
     style C fill:#f3e5f5
@@ -363,7 +363,7 @@ flowchart LR
 flowchart TB
     A[Graph Coverage] --> B[Node Coverage]
     A --> C[Link Coverage]
-    
+
     B --> B1["Every node exercised"]
     C --> C1["Every link exercised"]
 ```
@@ -462,7 +462,7 @@ stateDiagram-v2
 
 ### Lexical Level Testing
 
-**Valid:** `wc`  
+**Valid:** `wc`
 **Invalid:** `w`, `wcc`, `wcp`, `wc` (with special chars)
 
 ---

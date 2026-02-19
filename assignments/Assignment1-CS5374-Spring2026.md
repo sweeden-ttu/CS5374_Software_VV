@@ -1,8 +1,8 @@
 # Assignment 1: Functional + Structural Testing + LangSmith
 
-> **Texas Tech University**  
-> Department of Computer Science  
-> CS5374 – Software Verification and Validation  
+> **Texas Tech University**
+> Department of Computer Science
+> CS5374 – Software Verification and Validation
 > Spring 2026
 
 ---
@@ -189,7 +189,7 @@ flowchart LR
     B --> C[Chain 2]
     C --> D[Chain n]
     D --> E[Output]
-    
+
     F[LangSmith] --> G[Trace & Record]
 ```
 

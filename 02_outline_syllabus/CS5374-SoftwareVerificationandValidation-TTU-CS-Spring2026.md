@@ -1,7 +1,7 @@
 # CS 5374 – Software Verification and Validation
 
-> **Texas Tech University**  
-> Department of Computer Science  
+> **Texas Tech University**
+> Department of Computer Science
 > Spring 2026
 
 ---
@@ -138,12 +138,12 @@ flowchart LR
     subgraph Primary["Primary Textbook"]
         A["Introduction to Software Testing<br/>Ammann & Offutt"]
     end
-    
+
     subgraph Secondary["Secondary Resources"]
         B["Software Testing and Analysis<br/>Pezze & Young"]
         C["Logic in Computer Science<br/>Huth & Ryan"]
     end
-    
+
     Primary --> Secondary
 ```
 
@@ -234,7 +234,7 @@ flowchart TB
         C --> D[End-Semester Submission]
         D --> E[Final Presentation]
     end
-    
+
     subgraph OffCampus["Off-Campus"]
         F[Individual Work] --> G[Mid-Semester Submission]
         G --> H[15-20 min Video]
@@ -294,7 +294,7 @@ $$
 
 ### Reference
 
-Texas Tech University Student Handbook:  
+Texas Tech University Student Handbook:
 http://www.depts.ttu.edu/studentaffairs/publications/2008_2009_Handbook_and_Code.pdf (Part IX, pp. 21-30)
 
 ---

@@ -1,15 +1,15 @@
 # Trustworthy AI Legal and Governmental Content Validator — Project Plan
 
-**CS5374 Software Verification and Validation | Spring 2026**  
-**Scope:** Trustworthy AI  
-**Authoritative sources:** Texas Open Data (data.texas.gov, data.capitol.texas.gov)  
+**CS5374 Software Verification and Validation | Spring 2026**
+**Scope:** Trustworthy AI
+**Authoritative sources:** Texas Open Data (data.texas.gov, data.capitol.texas.gov)
 **Integrated tools:** Collection of frameworks, tools, and projects (05_opensource_tools)
 
 ---
 
 ## 1. Project Title
 
-**Trustworthy AI Legal and Governmental Content Validator:**  
+**Trustworthy AI Legal and Governmental Content Validator:**
 Verification of Legal News Sources, Officials, Laws, Court Documents, and Templates Using Texas Open Data and Open-Source V&V Tools
 
 ---

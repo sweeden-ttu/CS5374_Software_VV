@@ -1,7 +1,7 @@
 # CS 5374 – Software Verification and Validation
 
-> **Texas Tech University**  
-> Department of Computer Science  
+> **Texas Tech University**
+> Department of Computer Science
 > Spring 2026
 
 ---
@@ -85,7 +85,7 @@ This course covers software verification and validation (V&V) techniques, includ
 ## Resources
 
 ### Textbook
-- **Introduction to Software Testing** — Paul Ammann & Jeff Offutt  
+- **Introduction to Software Testing** — Paul Ammann & Jeff Offutt
   [https://cs.gmu.edu/~offutt/softwaretest/](https://cs.gmu.edu/~offutt/softwaretest/)
 
 ### AI/LLM Resources
@@ -112,6 +112,17 @@ This course includes a major project on building a validation pipeline that veri
 ### Project plan (Texas data + open-source tools)
 
 **[PROJECT_PLAN.md](submissions/PROJECT_PLAN.md)** — Integrated project plan that meets the [PROJECT_PROPOSAL](submissions/PROJECT_PROPOSAL.md) guidelines, uses **Texas Open Data** ([data.texas.gov](https://data.texas.gov), [data.capitol.texas.gov](https://data.capitol.texas.gov)) as authoritative legal/governmental sources instead of federal, and integrates the **open-source frameworks and tools** from [05_opensource_tools/Collection_of_frameworks_tools_projects.md](05_opensource_tools/Collection_of_frameworks_tools_projects.md) (DeepEval, Ragas, LangSmith, GARAK, promptfoo, Phoenix, TextAttack, etc.) into experiments, deliverables, and security review.
+
+---
+
+### Linting
+
+Markdown files can be linted with [markdownlint](https://github.com/DavidAnson/markdownlint). From the repo root, with Node.js installed, run:
+
+- `npx markdownlint-cli@latest "**/*.md" --fix` — auto-fix fixable issues
+- `npx markdownlint-cli@latest "**/*.md"` — report remaining violations
+
+Or run the helper script: `./scripts/lint-markdown.sh`
 
 ---
 

@@ -1,7 +1,7 @@
 # Grading Rubrics - CS 5374 Software Verification and Validation
 
-> **Texas Tech University**  
-> Department of Computer Science  
+> **Texas Tech University**
+> Department of Computer Science
 > Spring 2026
 
 ---

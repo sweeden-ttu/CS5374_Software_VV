@@ -1,6 +1,6 @@
 # An Introduction to Software Testing
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
@@ -44,11 +44,11 @@ flowchart TB
         A[Program] --> B{Run Code?}
         B -->|No| C[Static Analysis]
         B -->|Yes| D[Dynamic Analysis]
-        
+
         C --> C1[Formal Methods]
         C --> C2[Code Inspection]
         C --> C3[Theorem Proving]
-        
+
         D --> D1[Software Testing]
         D --> D2[Debugging]
         D --> D3[Profiling]
@@ -98,7 +98,7 @@ flowchart TB
     B -->|causes| C[Fault]
     C -->|triggers| D[Failure]
     D -->|observed as| E[Defect/Bug]
-    
+
     style B fill:#ffeb3b
     style C fill:#ff9800
     style D fill:#f44336,color:#fff
@@ -162,11 +162,11 @@ flowchart TB
         A["Test Suite A"]
         B["Test Suite B"]
     end
-    
+
     A --> A1["Test Case 1"]
     A --> A2["Test Case 2"]
     A --> A3["Test Case 3"]
-    
+
     B --> B1["Test Case n-1"]
     B --> B2["Test Case n"]
 ```
@@ -226,7 +226,7 @@ flowchart TB
         D -->|Test Cases| M
         M -->|Results| D
     end
-    
+
     style D fill:#e1f5fe
     style M fill:#fff3e0
     style S1 fill:#f3e5f5
@@ -247,13 +247,13 @@ flowchart TB
         B[Black Box<br/>Functional] --> G[Gray Box]
         W[White Box<br/>Structural] --> G
     end
-    
+
     B --> B1[Specs-based]
     B --> B2[No source code needed]
-    
+
     W --> W1[Code-based]
     W --> W2[Source code required]
-    
+
     G --> G1[Combined approach]
 ```
 
@@ -273,7 +273,7 @@ flowchart LR
     B --> C[System Testing]
     C --> D[Acceptance Testing]
     D --> E[Release]
-    
+
     E --> F[Regression Testing]
     F --> E
 ```
@@ -320,10 +320,10 @@ flowchart TB
         V1[Verification<br/>Quality Assurance]
         V2[Validation<br/>Quality Control]
     end
-    
+
     V1 -->|"Are we building it right?"| V1A[Internal Process]
     V1 -->|"Compliance with specs"| V1B[End of each phase]
-    
+
     V2 -->|"Are we building the right thing?"| V2A[Customer Needs]
     V2 -->|"Acceptance & suitability"| V2B[Before Delivery]
 ```
@@ -348,7 +348,7 @@ flowchart TB
         DD[Detailed Design]
         C[Code]
     end
-    
+
     subgraph Testing["Test Plans"]
         R --> AP[Acceptance<br/>Test Plan]
         S --> SP[System Integration<br/>Test Plan]

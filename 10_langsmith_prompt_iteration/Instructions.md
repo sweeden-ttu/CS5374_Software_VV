@@ -1,6 +1,6 @@
 # Instructions: Small Prompt Iteration
 
-> **CS 5374 – Software Verification and Validation**  
+> **CS 5374 – Software Verification and Validation**
 > Texas Tech University
 
 ---
