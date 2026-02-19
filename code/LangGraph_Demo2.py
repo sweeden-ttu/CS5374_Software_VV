@@ -34,7 +34,7 @@ def llm_route(state: State) -> dict:
 
     Returns: {"route": "..."}
     """
-    llm = ChatOllama(model="llama3.2:3b", temperature=0)
+    llm = ChatOllama(model="granite-code:20b", temperature=0)
 
     system = (
         "You are a strict text classifier.\n"
@@ -85,7 +85,7 @@ def run_question_code(state: State) -> dict:
 
 # --- Node 3: beautify using LLM (Ollama) ---
 def beautify_llm(state: State) -> dict:
-    llm = ChatOllama(model="llama3.2:3b", temperature=0)
+    llm = ChatOllama(model="granite-code:20b", temperature=0)
 
     prompt = (
         "Rewrite the following customer-service reply politely in ONE short sentence.\n"

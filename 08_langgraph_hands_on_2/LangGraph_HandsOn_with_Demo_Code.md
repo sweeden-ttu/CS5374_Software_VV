@@ -80,11 +80,11 @@ Install Ollama:
 Verify and pull a small model (choose one that fits your machine). Example:
 
     ollama --help
-    ollama pull llama3.2:3b
+    ollama pull granite-code:20b
 
 Quick test:
 
-    ollama run llama3.2:3b "Say hello in one sentence."
+    ollama run granite-code:20b "Say hello in one sentence."
 
 
 
@@ -93,9 +93,9 @@ Below is a demo version where the routing decision (question vs compliment) is m
 LLM.This also uses Ollama to beautify the final response, and saves the Mermaid graph as a PNG.
 
 1.) Open cmd (Windows) / Terminal (Mac) and execute below command. This will download and
-install LLM model “llama3.2:3b” locally on your system using ollama software.
+install LLM model “granite-code:20b” locally on your system using ollama software.
 
-       ollama run llama3.2:3b
+       ollama run granite-code:20b
 
 2.) Install required packages (inside your .venv): pip install -U langgraph langchain-ollama python-
 dotenv typing_extensions
@@ -165,7 +165,7 @@ def llm_route(state: State) -> dict:
 
     """
 
-    llm = ChatOllama(model="llama3.2:3b", temperature=0)
+    llm = ChatOllama(model="granite-code:20b", temperature=0)
    system = (
 
        "You are a strict text classifier.\n"
@@ -254,7 +254,7 @@ def run_question_code(state: State) -> dict:
 
 def beautify_llm(state: State) -> dict:
 
-    llm = ChatOllama(model="llama3.2:3b", temperature=0)
+    llm = ChatOllama(model="granite-code:20b", temperature=0)
 
 
 

@@ -10,7 +10,7 @@ Prerequisites
 
 • Your Demo2 script (e.g., LangGraph_Demo2_LangSmith.py or Demo2.py).
 
-• If using Ollama: Ollama installed and a model pulled (example: llama3.2:3b).
+• If using Ollama: Ollama installed and a model pulled (example: granite-code:20b).
 
 • A LangSmith account + API key (if you want the website traces).
 
@@ -41,8 +41,8 @@ Step 3 — (Optional) Set up Ollama for local LLMs
 
 If your Demo2 uses Ollama (ChatOllama), verify it works and pull a model.
 ollama --help
-ollama pull llama3.2:3b
-ollama run llama3.2:3b "Say hello in one sentence."
+ollama pull granite-code:20b
+ollama run granite-code:20b "Say hello in one sentence."
 
 Step 4 — Enable LangSmith tracing
 

@@ -89,6 +89,10 @@ This course covers software verification and validation (V&V) techniques, includ
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [LangSmith Cookbook](https://github.com/langchain-ai/langsmith-cookbook)
 
+### RedRaider cluster (Texas Tech HPCC)
+- **[Connecting to LLMs and running OLLAMA on RedRaider](docs/RedRaider_LLM_Ollama.md)** — Connect to the cluster, run OLLAMA in batch or interactive sessions, and point LangChain/LangGraph at cluster LLMs (including port forwarding from your laptop).
+- **hpcc/** — Job scripts and agent notes pulled from `~/hpcc` for running LangSmith/LangGraph and OLLAMA on the cluster. See [hpcc/README.md](hpcc/README.md).
+
 ---
 
 ## Project: Trustworthy AI Legal and Governmental Content Validator
