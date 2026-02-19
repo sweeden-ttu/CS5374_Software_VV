@@ -12,8 +12,10 @@
 #SBATCH --mail-user=sweeden@ttu.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE,ALL
 
-# Load required modules FIRST (needed for python3)
+# Environment: bashrc, modules, then conda (required before any python)
+source ~/.bashrc
 module load gcc/13.2.0 cuda/12.9.0 python/3.12.5
+conda activate cs5374
 
 # Get unique port for Ollama
 export OLPORT=$(python3 -c "import socket; s = socket.socket(); s.bind(('', 0)); print(s.getsockname()[1]); s.close()")
@@ -48,7 +50,7 @@ echo "Using model: $MODEL"
 # Pull model if needed
 echo "Ensuring model is available..."
 $HOME/ollama-latest/bin/ollama pull $MODEL
-source ~/.bashrc
+
 # Check if we have a Python agent script to run
 AGENT_SCRIPT=${AGENT_SCRIPT:-}
 if [ -n "$AGENT_SCRIPT" ] && [ -f "$AGENT_SCRIPT" ]; then

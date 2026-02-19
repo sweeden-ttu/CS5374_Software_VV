@@ -10,6 +10,11 @@
 #SBATCH --output=langsmith_demo2_%j.out
 #SBATCH --error=langsmith_demo2_%j.err
 
+# Environment: bashrc, modules, then conda (required before any python)
+source ~/.bashrc
+module load gcc/13.2.0 cuda/12.9.0 python/3.12.5
+conda activate cs5374
+
 cd /lustre/work/sweeden/CS5374_SOFTWARE_VV/langsmith
 
 export OLPORT=55131
@@ -25,6 +30,6 @@ sleep 8
 
 echo "Running LangSmith_Demo2.py..."
 
-python3.11 LangSmith_Demo2.py
+python LangSmith_Demo2.py
 
 echo "Done"

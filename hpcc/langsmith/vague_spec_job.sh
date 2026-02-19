@@ -10,6 +10,11 @@
 #SBATCH --output=vague_spec_%j.out
 #SBATCH --error=vague_spec_%j.err
 
+# Environment: bashrc, modules, then conda (required before any python/pip)
+source ~/.bashrc
+module load gcc/13.2.0 cuda/12.9.0 python/3.12.5
+conda activate cs5374
+
 cd /lustre/work/sweeden/CS5374_SOFTWARE_VV/langsmith
 
 export OLPORT=$(python3 -c "import socket; s = socket.socket(); s.bind((\"\", 0));print(s.getsockname()[1]);s.close()")
@@ -30,8 +35,6 @@ if ! ps -p $OLLAMA_PID > /dev/null 2>&1; then
 fi
 
 echo "Ollama started PID $OLLAMA_PID"
-
-pip3 install python-dotenv langchain langchain-ollama --quiet 2>/dev/null
 
 $HOME/ollama-latest/bin/ollama pull granite-code:4b
 

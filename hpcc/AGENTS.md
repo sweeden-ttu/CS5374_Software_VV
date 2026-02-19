@@ -78,9 +78,10 @@ Code and data under `/lustre/work/sweeden/CS5374_SOFTWARE_VV/hpcc` persist acros
 #SBATCH --gres=gpu:1
 #SBATCH -c 20
 
+# Environment: bashrc, modules, then conda (required before any python)
 source ~/.bashrc
 module load gcc/13.2.0 cuda/12.9.0 python/3.12.5
-conda activate myenv   # if needed
+conda activate cs5374
 
 cd /lustre/work/YOUR_USERNAME/<project>
 python train.py
