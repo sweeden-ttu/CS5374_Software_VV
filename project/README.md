@@ -150,6 +150,39 @@ python -m agent.quiz1_langsmith_graph
 langgraph dev
 ```
 
+### 5. Crawl pipeline (conda)
+
+The crawl → validate → cleanup pipeline uses **conda** for environment management. It writes posts to `legal-luminary/_posts` and rankings to `legal-luminary/_data/important_articles.json`.
+
+**Create and activate the conda environment:**
+
+```bash
+cd project
+conda env create -f environment.yml
+conda activate agent-pipeline
+playwright install chromium
+```
+
+**Configure API keys** (copy `.env.example` to `.env` and set `OPENAI_API_KEY`, optional `LANGSMITH_API_KEY`).
+
+**Run the pipeline:**
+
+```bash
+PYTHONPATH=src python run_crawl_pipeline.py
+```
+
+Or run the pipeline module directly:
+
+```bash
+PYTHONPATH=src python -m agent.crawl_validate_cleanup_pipeline
+```
+
+**Update the environment** after changing `environment.yml`:
+
+```bash
+conda env update -f environment.yml --prune
+```
+
 ## Running Tests
 
 ```bash

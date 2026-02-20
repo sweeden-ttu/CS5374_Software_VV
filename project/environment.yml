@@ -1,0 +1,23 @@
+# Conda environment for the crawl -> validate -> cleanup pipeline.
+# Create: conda env create -f environment.yml
+# Activate: conda activate agent-pipeline
+# Then: playwright install chromium
+# Run: PYTHONPATH=src python run_crawl_pipeline.py
+
+name: agent-pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10,<3.13
+  - pip
+  - pip:
+    - langgraph>=1.0.0
+    - python-dotenv>=1.0.1
+    - langchain>=0.3.0
+    - langchain-openai>=0.2.0
+    - langchain-core>=0.3.0
+    - langsmith>=0.1.0
+    - typing_extensions>=4.0.0
+    - playwright
+    - pyyaml
